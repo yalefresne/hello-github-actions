@@ -1,0 +1,18 @@
+name: Pull request action test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Pull request action test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Echo ref
+      if: ${{ github.base_ref == 'test'}}
+      run: echo ${{ github.base_ref }}
